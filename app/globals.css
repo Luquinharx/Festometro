@@ -1,0 +1,410 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #f8f8e1;
+    --foreground: #1f2937;
+    --card: #ffffff;
+    --card-foreground: #1f2937;
+    --popover: #ffffff;
+    --popover-foreground: #1f2937;
+    --primary: #ff90bb;
+    --primary-foreground: #ffffff;
+    --secondary: #ffc1da;
+    --secondary-foreground: #1f2937;
+    --muted: #f9fafb;
+    --muted-foreground: #6b7280;
+    --accent: #8accd5;
+    --accent-foreground: #1f2937;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --border: #e5e7eb;
+    --input: #f9fafb;
+    --ring: #ff90bb;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: #0f172a;
+    --foreground: #f8fafc;
+    --card: #1e293b;
+    --card-foreground: #f8fafc;
+    --popover: #1e293b;
+    --popover-foreground: #f8fafc;
+    --primary: #ff90bb;
+    --primary-foreground: #ffffff;
+    --secondary: #334155;
+    --secondary-foreground: #f8fafc;
+    --muted: #475569;
+    --muted-foreground: #94a3b8;
+    --accent: #334155;
+    --accent-foreground: #f8fafc;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --border: #475569;
+    --input: #334155;
+    --ring: #ff90bb;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-family: var(--font-poppins), sans-serif;
+    background: linear-gradient(135deg, #fef7ff 0%, #f0f9ff 25%, #f0fdf4 50%, #fefce8 75%, #fef2f2 100%);
+    min-height: 100vh;
+    color: hsl(var(--foreground));
+  }
+
+  .font-dancing {
+    font-family: var(--font-dancing), cursive;
+  }
+}
+
+/* Cores do Festometrô */
+.bg-festometro-pink {
+  background: linear-gradient(135deg, #ff90bb, #ffc1da);
+}
+
+.bg-festometro-blue {
+  background: linear-gradient(135deg, #8accd5, #b8e6b8);
+}
+
+.bg-festometro-purple {
+  background: linear-gradient(135deg, #c084fc, #ddd6fe);
+}
+
+.bg-festometro-orange {
+  background: linear-gradient(135deg, #fb923c, #fed7aa);
+}
+
+.bg-festometro-green {
+  background: linear-gradient(135deg, #4ade80, #bbf7d0);
+}
+
+.text-festometro-pink {
+  color: #ff90bb;
+}
+
+.text-festometro-blue {
+  color: #8accd5;
+}
+
+.text-festometro-purple {
+  color: #c084fc;
+}
+
+.text-festometro-orange {
+  color: #fb923c;
+}
+
+.text-festometro-green {
+  color: #4ade80;
+}
+
+/* Gradientes personalizados */
+.gradient-primary {
+  background: linear-gradient(135deg, #ff90bb, #ffc1da);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #8accd5, #ff90bb);
+}
+
+.gradient-festometro {
+  background: linear-gradient(135deg, #ff90bb 0%, #8accd5 25%, #c084fc 50%, #fb923c 75%, #4ade80 100%);
+  background-size: 300% 300%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Animações customizadas */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 144, 187, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 144, 187, 0.6), 0 0 60px rgba(255, 144, 187, 0.4);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bounce-soft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scale-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 300% 300%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.animate-bounce-soft {
+  animation: bounce-soft 3s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 8s linear infinite;
+}
+
+.animate-scale-pulse {
+  animation: scale-pulse 2s ease-in-out infinite;
+}
+
+/* Efeitos de hover */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Texto com gradiente */
+.text-gradient {
+  background: linear-gradient(135deg, #ff90bb, #8accd5, #c084fc, #fb923c, #4ade80);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 6s ease infinite;
+}
+
+/* Botões com efeitos especiais */
+.btn-festometro {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ff90bb, #ffc1da);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(255, 144, 187, 0.3);
+  color: white;
+  font-weight: 600;
+}
+
+.btn-festometro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-festometro:hover::before {
+  left: 100%;
+}
+
+.btn-festometro:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(255, 144, 187, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #8accd5, #b8e6b8);
+  box-shadow: 0 8px 25px rgba(138, 204, 213, 0.3);
+}
+
+.btn-secondary:hover {
+  box-shadow: 0 15px 35px rgba(138, 204, 213, 0.4);
+}
+
+/* Cards com efeito glass */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ff90bb, #8accd5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ffc1da, #b8e6b8);
+}
+
+/* Inputs e formulários */
+.input-festometro {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(255, 144, 187, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.input-festometro:focus {
+  border-color: #ff90bb;
+  box-shadow: 0 0 0 3px rgba(255, 144, 187, 0.1);
+  background: rgba(255, 255, 255, 1);
+}
+
+/* Badges personalizados */
+.badge-festometro {
+  background: linear-gradient(135deg, #ff90bb, #ffc1da);
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.badge-success {
+  background: linear-gradient(135deg, #4ade80, #bbf7d0);
+}
+
+.badge-warning {
+  background: linear-gradient(135deg, #fb923c, #fed7aa);
+}
+
+.badge-info {
+  background: linear-gradient(135deg, #8accd5, #b8e6b8);
+}
+
+/* Partículas decorativas */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(45deg, #ff90bb, #8accd5);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .glass-card {
+    backdrop-filter: blur(15px);
+  }
+  
+  .btn-festometro {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Estados de loading */
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Melhorias de acessibilidade */
+.focus-visible:focus {
+  outline: 2px solid #ff90bb;
+  outline-offset: 2px;
+}
+
+/* Transições globais */
+* {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
